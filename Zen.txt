@@ -2,7 +2,7 @@ Zen of Python!
 
 1. Oleks11Gor
 2. Nezdanchik
-3. StephanHorbach
+3. Simple is better than complex.
 4. skvladimir
 5. Cervin-van
 6. veronikavd
