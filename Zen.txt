@@ -7,7 +7,7 @@ Zen of Python!
 5. Cervin-van
 6. veronikavd
 7. RoastyTs
-8. maksymlohvinov06
+8. Special cases aren't special enough to break the rules.
 9. mradchenko
 10. f4rllen
 11. Fantik13
