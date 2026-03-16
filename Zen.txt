@@ -1,7 +1,7 @@
 Zen of Python!
 
 1. Oleks11Gor
-2. Nezdanchik
+2. Explicit is better than implicit.
 3. Simple is better than complex.
 4. skvladimir
 5. Cervin-van
