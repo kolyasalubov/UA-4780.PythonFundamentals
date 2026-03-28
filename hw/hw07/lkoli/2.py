@@ -1,0 +1,1 @@
+print("hw7 task2")
