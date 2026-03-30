@@ -9,6 +9,6 @@ Zen of Python!
 7. RoastyTs
 8. Special cases aren't special enough to break the rules.
 9. mradchenko
-10. f4rllen
+10. Errors should never pass silently.
 11. Unless explicitly silenced.
 12. In the face of ambiguity, refuse the temptation to guess.
