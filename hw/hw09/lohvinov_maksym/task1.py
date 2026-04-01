@@ -19,4 +19,3 @@ while True:
     if attempts == 0:
         print(f"Ти програв! Спроби закінчились. Я загадав число: {secret_number}")
         break
-    
