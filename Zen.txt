@@ -6,7 +6,7 @@ Zen of Python!
 4. skvladimir
 5. Flat is better than nested.
 6. veronikavd
-7. RoastyTs
+7. Although that way may not be obvious at first unless you're Dutch.
 8. Special cases aren't special enough to break the rules.
 9. mradchenko
 10. Errors should never pass silently.
