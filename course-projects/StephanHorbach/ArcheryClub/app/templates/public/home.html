@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Archery Society Kyiv{% endblock %}
+
+{% block content %}
+  <section class="hero">
+    <div class="hero-copy-block">
+      <p class="eyebrow">Olympic archery club</p>
+      <h1>Archery Society Kyiv</h1>
+      <p class="hero-copy">Welcome to the club where beginners can start safely, confidently, and with a clear path toward Olympic recurve technique.</p>
+      <a class="button primary" href="#lead-form">Trial Training</a>
+    </div>
+  </section>
+
+  <section class="info-grid">
+    <article class="card" id="trial-training">
+      <h2>Trial Training</h2>
+      <p>Join a first session to learn safety, stance, and how the bow feels in your hands.</p>
+    </article>
+
+    <article class="card">
+      <h2>How the first session works</h2>
+      <p>We introduce equipment, explain range rules, and guide your first arrows step by step.</p>
+    </article>
+  </section>
+
+  <section class="cards">
+    <article class="card">
+      <h2>Featured trainings</h2>
+      <ul class="clean-list">
+        {% for slot in featured_slots %}
+          <li>{{ slot.title }} · {{ slot.day_label }} {{ slot.start_time }}</li>
+        {% endfor %}
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Featured posts</h2>
+      <ul class="clean-list">
+        {% for post in featured_posts %}
+          <li>{{ post.title }}</li>
+        {% endfor %}
+      </ul>
+    </article>
+  </section>
+
+  <section class="lead-shell" id="lead-form">
+    <div class="lead-copy-block">
+      <p class="eyebrow">Start here</p>
+      <h2>Book your first training</h2>
+      <p>Leave your details and we will help you choose the right beginner session.</p>
+    </div>
+
+    <div class="lead-form-frame">
+      <form class="stack-form" action="{{ url_for('public.signup') }}" method="post">
+        <label>
+          Name
+          <input name="name" type="text" required>
+        </label>
+        <label>
+          Phone
+          <input name="phone" type="tel" required>
+        </label>
+        <label>
+          Email
+          <input name="email" type="email">
+        </label>
+        <label>
+          Experience level
+          <select name="experience_level">
+            <option>Beginner</option>
+            <option>Beginner+</option>
+            <option>Returning archer</option>
+          </select>
+        </label>
+        <label>
+          Preferred slot
+          <input name="preferred_slot" type="text">
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button class="button primary" type="submit">Send request</button>
+      </form>
+    </div>
+  </section>
+{% endblock %}
+
