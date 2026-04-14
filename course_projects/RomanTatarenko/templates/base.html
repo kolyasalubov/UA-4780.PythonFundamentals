@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advertisements Page</title>
+</head>
+<body>
+    <h1>Advertisements Page</h1>
+    <a href="{{ url_for('index') }}">Home</a> |
+    <a href="{{ url_for('add') }}">Add Ad</a>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
