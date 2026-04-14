@@ -1,0 +1,42 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Schedule Form{% endblock %}
+
+{% block content %}
+  <h1>{% if slot %}Edit{% else %}Create{% endif %} Schedule Entry</h1>
+  <form method="post">
+    <label>
+      Title
+      <input name="title" value="{{ slot.title if slot else '' }}" required>
+    </label>
+    <label>
+      Day
+      <input name="day_label" value="{{ slot.day_label if slot else '' }}" required>
+    </label>
+    <label>
+      Start time
+      <input name="start_time" value="{{ slot.start_time if slot else '' }}" required>
+    </label>
+    <label>
+      Level
+      <input name="level" value="{{ slot.level if slot else '' }}" required>
+    </label>
+    <label>
+      Coach
+      <input name="coach_name" value="{{ slot.coach_name if slot else '' }}" required>
+    </label>
+    <label>
+      Capacity
+      <input name="capacity" type="number" value="{{ slot.capacity if slot else 10 }}" required>
+    </label>
+    <label>
+      Description
+      <textarea name="description" rows="4" required>{{ slot.description if slot else '' }}</textarea>
+    </label>
+    <label>
+      <input name="is_featured" type="checkbox" {% if slot and slot.is_featured %}checked{% endif %}>
+      Featured
+    </label>
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}

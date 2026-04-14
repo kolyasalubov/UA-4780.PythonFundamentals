@@ -1,0 +1,12 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+  <h1>Admin Dashboard</h1>
+  <section class="stats-grid">
+    <article class="stat-card"><strong>{{ post_count }}</strong><span>Posts</span></article>
+    <article class="stat-card"><strong>{{ slot_count }}</strong><span>Slots</span></article>
+    <article class="stat-card"><strong>{{ lead_count }}</strong><span>Leads</span></article>
+  </section>
+{% endblock %}

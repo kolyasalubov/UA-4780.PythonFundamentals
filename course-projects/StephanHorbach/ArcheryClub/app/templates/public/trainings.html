@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Trainings{% endblock %}
+
+{% block content %}
+  <section class="page-intro">
+    <h1>Trainings</h1>
+    <p>Choose a session that matches your first steps in Olympic recurve.</p>
+  </section>
+
+  <section class="cards">
+      {% for slot in slots %}
+        <article class="card">
+          <strong>{{ slot.title }}</strong>
+          <p>{{ slot.day_label }} · {{ slot.start_time }}</p>
+          <p>{{ slot.level }} · Coach {{ slot.coach_name }}</p>
+          <p>{{ slot.description }}</p>
+        </article>
+      {% endfor %}
+  </section>
+{% endblock %}
