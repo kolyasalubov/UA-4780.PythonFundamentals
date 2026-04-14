@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Archery Society Kyiv{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="{{ url_for('public.home') }}">Archery Society Kyiv</a>
+      <nav class="site-nav" aria-label="Primary">
+        {% set nav_items = [
+          {'label': 'Trainings', 'endpoint': 'public.trainings'},
+          {'label': 'Blog', 'endpoint': 'public.blog'},
+          {'label': 'Contacts', 'endpoint': 'public.contacts'},
+          {'label': 'Admin', 'fallback': '/admin'}
+        ] %}
+        {% for item in nav_items %}
+          {% if item.fallback is defined %}
+            <a href="{{ nav_href(item.endpoint|default(None), item.fallback) }}">{{ item.label }}</a>
+          {% else %}
+            <a href="{{ nav_href(item.endpoint) }}">{{ item.label }}</a>
+          {% endif %}
+        {% endfor %}
+      </nav>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <section class="flash-stack" aria-label="Flash messages">
+          {% for category, message in messages %}
+            <div class="flash flash-{{ category }}">{{ message }}</div>
+          {% endfor %}
+        </section>
+      {% endif %}
+    {% endwith %}
+
+    <main class="page-shell">
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>

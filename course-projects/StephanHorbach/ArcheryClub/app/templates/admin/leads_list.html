@@ -1,0 +1,36 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Leads{% endblock %}
+
+{% block content %}
+  <h1>Incoming Leads</h1>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Preferred slot</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lead in leads %}
+        <tr>
+          <td>{{ lead.name }}</td>
+          <td>{{ lead.phone }}</td>
+          <td>{{ lead.preferred_slot }}</td>
+          <td>
+            <form action="{{ url_for('admin.leads_status', lead_id=lead.id) }}" method="post">
+              <select name="status">
+                {% for choice in ["new", "contacted", "booked"] %}
+                  <option value="{{ choice }}" {% if lead.status == choice %}selected{% endif %}>{{ choice }}</option>
+                {% endfor %}
+              </select>
+              <button type="submit">Update</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

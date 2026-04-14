@@ -1,0 +1,34 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Post Form{% endblock %}
+
+{% block content %}
+  <h1>{% if post %}Edit{% else %}Create{% endif %} Post</h1>
+  <form method="post">
+    <label>
+      Title
+      <input name="title" value="{{ post.title if post else '' }}" required>
+    </label>
+    <label>
+      Slug
+      <input name="slug" value="{{ post.slug if post else '' }}" required>
+    </label>
+    <label>
+      Category
+      <input name="category" value="{{ post.category if post else '' }}" required>
+    </label>
+    <label>
+      Excerpt
+      <textarea name="excerpt" rows="3" required>{{ post.excerpt if post else '' }}</textarea>
+    </label>
+    <label>
+      Content
+      <textarea name="content" rows="8" required>{{ post.content if post else '' }}</textarea>
+    </label>
+    <label>
+      <input name="is_featured" type="checkbox" {% if post and post.is_featured %}checked{% endif %}>
+      Featured
+    </label>
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}

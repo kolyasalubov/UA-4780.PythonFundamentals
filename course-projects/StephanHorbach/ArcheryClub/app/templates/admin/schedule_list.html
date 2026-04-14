@@ -1,0 +1,36 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Manage Schedule{% endblock %}
+
+{% block content %}
+  <section class="admin-header">
+    <h1>Manage Schedule</h1>
+    <a href="{{ url_for('admin.schedule_new') }}">New slot</a>
+  </section>
+
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>When</th>
+        <th>Coach</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for slot in slots %}
+        <tr>
+          <td>{{ slot.title }}</td>
+          <td>{{ slot.day_label }} · {{ slot.start_time }}</td>
+          <td>{{ slot.coach_name }}</td>
+          <td>
+            <a href="{{ url_for('admin.schedule_edit', slot_id=slot.id) }}">Edit</a>
+            <form action="{{ url_for('admin.schedule_delete', slot_id=slot.id) }}" method="post">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
